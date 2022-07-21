@@ -1,6 +1,6 @@
 # kubectl-in-lambda
 
-AWS CDK sample to deploy Amazon EKS cluster and a separate lambda function to execute `kubectl` command within Lambda against the cluster.
+AWS CDK sample to deploy Amazon EKS cluster and a separate lambda function to execute `kubectl` command within Lambda against the cluster. 
 
 ## HOWTO
 
@@ -36,3 +36,7 @@ Yes it is technically possible. You need to pass `ADMIN_ROLE_ARN` and `CLUSTER_N
 2. Can I run `kubectl apply -f manifest`?
 
 Yes. Check [this sample](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-eks/lib/kubectl-handler/apply/__init__.py).
+
+3. Can I customize the `kubectl` version or add additional executables in my Lambda function?
+
+Yes. Customize this lambda function container runtime in the `Dockerfile` under `docker.d`.
