@@ -12,7 +12,7 @@ This stack creates an Amazon ESK cluster 1.21 and a Lambda function with contain
 
 ```sh
 $ npx cdk diff
-$ cdk deploy
+$ npx cdk deploy
 ```
 
 ## destroy 
