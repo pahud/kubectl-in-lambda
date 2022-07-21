@@ -6,6 +6,8 @@ AWS CDK sample to deploy Amazon EKS cluster and a separate lambda function to ex
 
 This stack creates an Amazon ESK cluster 1.21 and a Lambda function with container runtime. After the deployment, go to the lambda console and manually execute the function. It will simply run `kubectl get no` and list the nodes in the lambda log streams.
 
+![](./images/lambda-log-output.png)
+
 ## deploy
 
 ```sh
