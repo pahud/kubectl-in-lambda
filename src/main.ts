@@ -33,9 +33,10 @@ export class MyStack extends Stack {
       timeout: Duration.seconds(30),
     });
 
-    // allow lambda role to eks:DescribeCluster
+    // allow lambda role to eks:DescribeCluster only aginst this cluster
     fn.addToRolePolicy(new iam.PolicyStatement({
       actions: ['eks:DescribeCluster'],
+      // use ['*'] for all clusters if you prefer
       resources: [cluster.clusterArn],
     }));
 

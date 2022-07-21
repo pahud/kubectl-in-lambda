@@ -18,3 +18,21 @@ $ cdk deploy
 ```sh
 $ npx cdk destroy
 ```
+
+## Lambda environment variables
+
+- `ADMIN_ROLE_ARN` - The IAM role ARN for the cluster that maps to `system:masters`. Lambda function will assume this role to run `kubectl` command.
+
+- `CLUSTER_NAME` - The Amazon EKS cluster name. We need the cluster name to run `aws eks update-kubeconfig` in lambda.
+
+
+
+## FAQ
+
+1. Can I run this lambda function with a cluster created by `eksctl`?
+
+Yes it is technically possible. You need to pass `ADMIN_ROLE_ARN` and `CLUSTER_NAME` to the lambda environment variables and update `fn.addToRolePolicy()` to allow lambda function `eks:DescribeCluster` your cluster.
+
+2. Can I run `kubectl apply -f manifest`?
+
+Yes. Check [this sample](https://github.com/aws/aws-cdk/blob/main/packages/%40aws-cdk/aws-eks/lib/kubectl-handler/apply/__init__.py).
