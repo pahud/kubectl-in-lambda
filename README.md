@@ -1,6 +1,6 @@
 # kubectl-in-lambda
 
-This is CDK sample to deploy Amazon EKS cluster and a separate lambda function to execute `kubectl` command in Lambda against the cluster.
+AWS CDK sample to deploy Amazon EKS cluster and a separate lambda function to execute `kubectl` command within Lambda against the cluster.
 
 ## HOWTO
 
