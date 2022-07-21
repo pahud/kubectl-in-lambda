@@ -14,6 +14,8 @@ export class MyStack extends Stack {
     super(scope, id, props);
 
     const vpc = ec2.Vpc.fromLookup(this, 'Vpc', { isDefault: true });
+    // or create a new vpc as below:
+    // const vpc = new ec2.Vpc(this, 'Vpc', { natGateways: 1 });
 
     const cluster = new eks.Cluster(this, 'Cluster', {
       version: eks.KubernetesVersion.V1_21,
